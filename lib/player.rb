@@ -1,12 +1,15 @@
 class Player
-  attr_accessor :name, :piece
+  attr_accessor :name, :piece, :moves, :first_move
 
   def initialize(name, piece)
     self.name = name
     self.piece = piece
+    self.moves = []
+    self.first_move = (self.piece == 'X' ? 1 : 0)
   end
 
-  def print
-    puts "The #{self.class} class is #{name} has the piece #{piece}"
+  def take_turn(xy)
+    x, y = xy.split('-')
+    moves << [x, y]
   end
 end

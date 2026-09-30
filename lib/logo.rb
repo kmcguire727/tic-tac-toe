@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:disable Layout/TrailingWhitespace
 # Simple encapsulation to print logo to console for main.rb
 module Logo
   def self.print_logo
@@ -14,3 +15,4 @@ module Logo
     LOGO
   end
 end
+# rubocop:enable Layout/TrailingWhitespace
