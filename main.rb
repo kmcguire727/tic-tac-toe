@@ -7,14 +7,12 @@
 
 require_relative 'lib/gameboard'
 require_relative 'lib/player'
+require_relative 'lib/logo'
 
-logo = File.read('./lib/logo.txt')
+Logo.print_logo
+
 pieces = %w[O X]
 players = []
-
-# Welcome the user with the ASCII art logo
-puts logo
-puts 'Welcome to Tic-Tac-Toe'
 
 # Gather the inputs needed to create the 2 players
 2.times do |i|
