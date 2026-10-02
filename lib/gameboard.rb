@@ -13,6 +13,7 @@ class Gameboard
   end
 
   def draw
+    update_board!
     puts
     board.each do |row|
       puts row.reduce("") { |acc, word| "#{acc} #{word} " }
@@ -20,10 +21,11 @@ class Gameboard
     puts
   end
 
-  def place_piece(player)
-    x = player.move[-1][0]
-    y = player.move[-1][1]
-    board[x][y]
-    game_over
+  def update_board!
+    Player.moves.each_with_index do |row, row_idx|
+      row.each_with_index do |element, col_idx|
+        board[col_idx + 1][row_idx + 1] = element unless element == 0
+      end
+    end
   end
 end

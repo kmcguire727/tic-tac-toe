@@ -8,6 +8,13 @@ class Player
 
   attr_accessor :name, :piece
 
+  def self.moves
+    @@moves
+  end
+
+  def self.winner
+  end
+
   def initialize(name, piece)
     self.name = name
     self.piece = piece

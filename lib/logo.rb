@@ -12,4 +12,28 @@ module Logo
                                                           
     LOGO
   end
+
+  def self.x_wins
+    # rubocop:disable-next Layout/TrailingWhitespace
+    puts <<~LOGO
+          __  __           _           
+      ╲ ╲╱ ╱ __      _(_)_ __  ___ 
+       ╲  ╱  ╲ ╲ ╱╲ ╱ ╱ │ '_ ╲╱ __│
+       ╱  ╲   ╲ V  V ╱│ │ │ │ ╲__ ╲
+      ╱_╱╲_╲   ╲_╱╲_╱ │_│_│ │_│___╱
+                                                            
+    LOGO
+  end
+
+  def self.o_wins
+    # rubocop:disable-next Layout/TrailingWhitespace
+    puts <<~LOGO
+         ___            _           
+        ╱___╲ __      _(_)_ __  ___ 
+       ╱╱  ╱╱ ╲ ╲ ╱╲ ╱ ╱ │ '_ ╲╱ __│
+      ╱ ╲_╱╱   ╲ V  V ╱│ │ │ │ ╲__ ╲
+      ╲___╱     ╲_╱╲_╱ │_│_│ │_│___╱
+  
+    LOGO
+  end
 end

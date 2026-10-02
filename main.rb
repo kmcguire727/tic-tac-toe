@@ -43,8 +43,7 @@ players.reverse! unless players[0].piece == "X"
 until game_over
   board.draw
   players[0].take_turn
+
   board.draw
   players[1].take_turn
-  puts players[0].inspect
-  puts players[1].inspect
 end
