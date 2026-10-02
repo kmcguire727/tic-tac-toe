@@ -1,12 +1,14 @@
+require_relative "player"
+
 class Gameboard
   attr_accessor :board
 
   def initialize
     self.board = [
       [" ", "a", "b", "c"],
+      ["0", "·", "·", "·"],
       ["1", "·", "·", "·"],
-      ["2", "·", "·", "·"],
-      ["3", "·", "·", "·"]
+      ["2", "·", "·", "·"]
     ]
   end
 
