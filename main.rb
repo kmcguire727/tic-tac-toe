@@ -3,9 +3,9 @@
 #  - The board is displayed in between turns.
 #  - Do not share info b/w classes more than needed.
 
-require_relative "lib/gameboard"
-require_relative "lib/player"
-require_relative "lib/logo"
+require_relative 'lib/gameboard'
+require_relative 'lib/player'
+require_relative 'lib/logo'
 
 pieces = %w[O X]
 players = []
@@ -37,15 +37,20 @@ Logo.print_logo
 end
 
 # Instantiate objects needed for game
-players.reverse! unless players[0].piece == "X"
+players.reverse! unless players[0].piece == 'X'
 
 # Main loop for game functionality
 until game_over
-  board.draw
-  players[0].take_turn
-  p players[0].move_map
+  if Player.move_count >= 9
+    game_over = true
+  else
+    board.draw
+    players[0].take_turn
+    board.draw
+    players[1].take_turn
+    game_over = true if Player.move_count >= 9
+  end
 
-  board.draw
-  players[1].take_turn
-  p players[1].move_map
+  puts 'Game over - who won?' if game_over == true
+
 end

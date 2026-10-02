@@ -1,17 +1,22 @@
-require "matrix"
+require 'matrix'
 
 class Player
-  LEGEND = { "a" => 0, "b" => 1, "c" => 2 }.freeze
-  @@moves = [
+  LEGEND = { 'a' => 0, 'b' => 1, 'c' => 2 }.freeze
+  @@move_matrix = [
     [0, 0, 0],
     [0, 0, 0],
     [0, 0, 0]
   ]
+  @@move_count = 0
 
   attr_accessor :name, :piece, :move_map
 
-  def self.moves
-    @@moves
+  def self.move_matrix
+    @@move_matrix
+  end
+
+  def self.move_count
+    @@move_count
   end
 
   def initialize(name, piece)
@@ -26,17 +31,18 @@ class Player
     until turn_complete
       begin
         print "#{name} (#{piece}'s) - input α-# coordinates per the gameboard: "
-        input = gets.chomp.split("-")
+        input = gets.chomp.split('-')
         x = LEGEND[input[0]]
         y = input[1].to_i
 
-        raise ArgumentError unless @@moves[x][y] == 0
+        raise ArgumentError unless @@move_matrix[x][y] == 0
 
-        @@moves[x][y] = piece
+        @@move_matrix[x][y] = piece
         move_map[x, y] = 1
         turn_complete = true
-      rescue ArgumentError, TypeError => e
-        puts "That is an invalid move. Try again."
+        @@move_count += 1
+      rescue ArgumentError, TypeError
+        puts 'That is an invalid move. Try again.'
       end
     end
   end
