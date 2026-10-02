@@ -43,7 +43,9 @@ players.reverse! unless players[0].piece == "X"
 until game_over
   board.draw
   players[0].take_turn
+  p players[0].move_map
 
   board.draw
   players[1].take_turn
+  p players[1].move_map
 end

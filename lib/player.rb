@@ -1,3 +1,5 @@
+require "matrix"
+
 class Player
   LEGEND = { "a" => 0, "b" => 1, "c" => 2 }.freeze
   @@moves = [
@@ -6,18 +8,16 @@ class Player
     [0, 0, 0]
   ]
 
-  attr_accessor :name, :piece
+  attr_accessor :name, :piece, :move_map
 
   def self.moves
     @@moves
   end
 
-  def self.winner
-  end
-
   def initialize(name, piece)
     self.name = name
     self.piece = piece
+    self.move_map = Matrix.zero(3)
   end
 
   def take_turn
@@ -33,8 +33,8 @@ class Player
         raise ArgumentError unless @@moves[x][y] == 0
 
         @@moves[x][y] = piece
+        move_map[x, y] = 1
         turn_complete = true
-        pp @@moves
       rescue ArgumentError, TypeError => e
         puts "That is an invalid move. Try again."
       end
