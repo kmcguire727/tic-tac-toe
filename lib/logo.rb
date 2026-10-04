@@ -37,7 +37,7 @@ module Logo
     LOGO
   end
 
-  def self.o_wins
+  def self.draw
     # rubocop:disable-next Layout/TrailingWhitespace
     puts <<~LOGO
       .────────────────.  .────────────────.  .────────────────.  .────────────────. 

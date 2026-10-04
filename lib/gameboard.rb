@@ -1,14 +1,17 @@
-require_relative 'player'
+require_relative "player"
 
+# Class manages the gameboard for Tic-Tac-Toe.
+# Instantiation gives you the essential board with X-Y coordinates for moving
+# Update board relies on the Player class to update where each piece belongs.
 class Gameboard
   attr_accessor :board
 
   def initialize
     self.board = [
-      [' ', 'a', 'b', 'c'],
-      ['0', '·', '·', '·'],
-      ['1', '·', '·', '·'],
-      ['2', '·', '·', '·']
+      [" ", "a", "b", "c"],
+      ["0", "·", "·", "·"],
+      ["1", "·", "·", "·"],
+      ["2", "·", "·", "·"]
     ]
   end
 
@@ -16,7 +19,7 @@ class Gameboard
     update_board!
     puts
     board.each do |row|
-      puts row.reduce('') { |acc, word| "#{acc} #{word} " }
+      puts row.reduce("") { |acc, word| "#{acc} #{word} " }
     end
     puts
   end
